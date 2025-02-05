@@ -1,0 +1,8 @@
+body {
+    background-image: url('public/background.jpg');  /* 这里的路径要匹配你的文件 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;  /* 让背景铺满整个页面 */
+    margin: 0;
+}
