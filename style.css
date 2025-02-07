@@ -41,6 +41,14 @@ h1 .starlight {
     border-radius: 10px;
 }
 
+/* ✅ 任务拖动按钮 */
+.drag-handle {
+    cursor: grab;
+    padding-right: 10px;
+    font-size: 1.2em;
+    user-select: none;
+}
+
 /* ✅ 已完成任务的样式 */
 .completed .task-text {
     text-decoration: line-through;
