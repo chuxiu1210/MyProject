@@ -9,17 +9,11 @@ body {
     padding: 0;
 }
 
-/* 🟡 调整 "欢迎来到" 字体大小 */
-h1 .welcome {
-    font-size: 1.2em;
-    margin-right: 10px;
-}
-
-/* ✨ BlingBling 动画 */
+/* ✨ BlingBling 动画优化 */
 @keyframes bling {
-    0% { text-shadow: 0 0 8px #ffffff, 0 0 12px #ffcc00, 0 0 18px #ff9900; }
-    50% { text-shadow: 0 0 12px #ffffff, 0 0 18px #ffdd55, 0 0 25px #ff8800; }
-    100% { text-shadow: 0 0 8px #ffffff, 0 0 12px #ffcc00, 0 0 18px #ff9900; }
+    0% { text-shadow: 0 0 8px #fff, 0 0 15px #ffcc00, 0 0 25px #ff9900; }
+    50% { text-shadow: 0 0 15px #fff, 0 0 20px #ffdd44, 0 0 35px #ff8800; }
+    100% { text-shadow: 0 0 8px #fff, 0 0 15px #ffcc00, 0 0 25px #ff9900; }
 }
 
 h1 .starlight {
@@ -31,7 +25,7 @@ h1 .starlight {
     animation: bling 2s infinite alternate;
 }
 
-/* ✅ 恢复卡片式板块 */
+/* ✅ 让 To-do List 正确对齐 */
 .container {
     display: flex;
     justify-content: center;
@@ -39,40 +33,16 @@ h1 .starlight {
     margin-top: 50px;
 }
 
-.card {
-    width: 220px;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: white;
-    transition: transform 0.3s ease-in-out;
-    text-decoration: none;
-}
-
-.card:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* 📌 To-do List 位置调整 */
+/* 📌 To-do List 调整 */
 .todo-widget {
-    width: 350px;
-    margin-top: 30px;
+    width: 300px;
     padding: 15px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
 }
 
-/* ✅ 修复拖动 */
-.drag-handle {
-    cursor: grab;
-    padding-right: 10px;
-    font-size: 1.2em;
-    user-select: none;
+/* ✅ 已完成任务的样式 */
+.completed .task-text {
+    text-decoration: line-through;
+    color: gray;
 }

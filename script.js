@@ -3,7 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const todoList = document.getElementById("todo-list");
     const addButton = document.querySelector(".todo-widget button");
 
-    function addTodoElement(text) {
+    function saveTodos() {
+        const todos = [];
+        document.querySelectorAll("#todo-list li").forEach(item => {
+            todos.push({
+                text: item.querySelector(".task-text").textContent,
+                completed: item.classList.contains("completed")
+            });
+        });
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
+    function loadTodos() {
+        const todos = JSON.parse(localStorage.getItem("todos")) || [];
+        todos.forEach(todo => addTodoElement(todo.text, todo.completed));
+    }
+
+    function addTodoElement(text, completed = false) {
         const li = document.createElement("li");
         li.classList.add("task-item");
 
@@ -19,12 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
         completeButton.textContent = "✅";
         completeButton.addEventListener("click", function () {
             li.classList.toggle("completed");
+            saveTodos();
         });
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "❌";
         deleteButton.addEventListener("click", function () {
             li.remove();
+            saveTodos();
         });
 
         li.appendChild(dragHandle);
@@ -32,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
         li.appendChild(completeButton);
         li.appendChild(deleteButton);
         todoList.appendChild(li);
+
+        if (completed) {
+            li.classList.add("completed");
+        }
+        saveTodos();
     }
 
     addButton.addEventListener("click", function () {
@@ -41,12 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 🛠 彻底修复拖动功能
     new Sortable(todoList, {
         animation: 150,
         handle: ".drag-handle",
         onEnd: function () {
-            console.log("任务已拖动");
+            saveTodos();
         }
     });
+
+    loadTodos();
 });
