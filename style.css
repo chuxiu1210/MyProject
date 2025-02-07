@@ -1,92 +1,62 @@
-/* 🌌 背景设置 */
 body {
-    background-image: url('public/background.jpg'); /* 请确保背景图路径正确 */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
     font-family: Arial, sans-serif;
-}
-
-/* ✨ 星光闪烁效果 */
-@keyframes sparkle {
-    0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
-    50% { text-shadow: 0 0 8px #ffffff, 0 0 15px #ffcc00, 0 0 30px #ff9900; }
-    100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
-}
-
-/* 🌟 标题样式 */
-h1 {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
     text-align: center;
+    color: white;
+}
+
+h1 {
     font-size: 3em;
-    white-space: nowrap; /* 保证标题不会自动换行 */
 }
 
 h1 .welcome {
-    color: #ffffff; /* 正常颜色 */
-}
-
-h1 .starlight {
-    color: #ffd700; /* 金色 */
-    animation: sparkle 1.5s infinite alternate;
-    display: inline-block;
-    padding: 0 10px; /* 增加间距，防止文字太挤 */
-}
-
-/* 📜 介绍文字 */
-.description {
-    text-align: center;
-    font-size: 1.2em;
-    margin-top: 10px;
     color: #ffffff;
 }
 
-/* 📜 板块布局 */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.card {
-    width: 220px;
-    height: 120px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: white;
-    transition: transform 0.3s ease-in-out;
-    text-decoration: none;
-    backdrop-filter: blur(5px); /* 增加一点模糊透明感 */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.card:hover {
-    transform: scale(1.1);
-}
-
-/* 💫 底部标志 */
-.footer {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 1.2em;
-    color: #fff;
-}
-
-/* 🌠 小猫 & Noah 的专属标志 */
-.decoration {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 2em;
+h1 .starlight {
     color: #ffd700;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+    animation: sparkle 1.5s infinite alternate;
+}
+
+/* To-do List 样式 */
+.todo-container {
+    width: 250px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+#todo-list li {
+    background: rgba(255, 255, 255, 0.3);
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#todo-list li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+#todo-input {
+    width: 80%;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #ffd700;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
