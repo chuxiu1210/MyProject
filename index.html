@@ -11,14 +11,20 @@
     <p>这里记录着Noah和小猫的点点滴滴，我们的故事将永远闪耀。</p>
 
     <div class="container">
-        <div class="card"><a href="stories.html">故事记录</a></div>
-        <div class="card"><a href="starlight_archive.html">相识日历</a></div>
-        <div class="card todo-container">
-            <h2>To-do List</h2>
-            <ul id="todo-list"></ul>
-            <input type="text" id="todo-input" placeholder="添加新任务...">
-            <button onclick="addTask()">添加</button>
-        </div>
+        <a href="stories.html" class="card">故事记录</a>
+        <a href="starlight_archive.html" class="card">相识日历</a>
+        <a href="todo.html" class="card">To-do List</a>
+    </div>
+
+    <div class="todo-widget">
+        <h2>📌 To-do List</h2>
+        <ul id="todo-list"></ul>
+        <input type="text" id="todo-input" placeholder="输入新任务">
+        <button onclick="addTask()">添加</button>
+    </div>
+
+    <div class="logo">
+        <p>🐱✨ 小猫 & Noah ✨🐱</p>
     </div>
 
     <script src="script.js"></script>
