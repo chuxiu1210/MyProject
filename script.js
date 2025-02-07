@@ -11,19 +11,38 @@ function addTask() {
         let list = document.getElementById("todo-list");
         let li = document.createElement("li");
 
-        // 创建删除按钮
-        let btn = document.createElement("button");
-        btn.textContent = "❌";
-        btn.onclick = function () { removeTask(this); };
+        // 创建拖动按钮
+        let dragHandle = document.createElement("span");
+        dragHandle.textContent = "≡";
+        dragHandle.classList.add("drag-handle");
 
-        // 插入文本和删除按钮
-        li.textContent = taskText;
-        li.appendChild(btn);
+        // 创建完成按钮
+        let completeBtn = document.createElement("button");
+        completeBtn.textContent = "✅";
+        completeBtn.onclick = function () { toggleComplete(this); };
+
+        // 创建删除按钮
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.onclick = function () { removeTask(this); };
+
+        // 组合元素
+        li.appendChild(dragHandle);
+        li.appendChild(completeBtn);
+        li.appendChild(document.createTextNode(taskText)); // 任务文本
+        li.appendChild(deleteBtn);
         list.appendChild(li);
 
         saveTasks();
         input.value = "";
     }
+}
+
+// 切换任务是否完成
+function toggleComplete(button) {
+    let li = button.parentElement;
+    li.classList.toggle("completed");  // 切换完成状态
+    saveTasks();
 }
 
 // 删除任务
@@ -37,13 +56,12 @@ function removeTask(button) {
 function saveTasks() {
     let tasks = [];
     document.querySelectorAll("#todo-list li").forEach(li => {
-        let taskContent = li.firstChild.textContent.trim();  // 只存任务文本
-        tasks.push(taskContent);
+        tasks.push({
+            text: li.childNodes[2].textContent.trim(),  // 任务文本
+            completed: li.classList.contains("completed")  // 是否完成
+        });
     });
     localStorage.setItem("todoTasks", JSON.stringify(tasks));
-
-    // 调试日志（可以打开浏览器 F12 控制台查看）
-    console.log("已保存的任务列表：", localStorage.getItem("todoTasks"));
 }
 
 // 加载任务
@@ -51,17 +69,40 @@ function loadTasks() {
     let savedTasks = localStorage.getItem("todoTasks");
     if (savedTasks) {
         let list = document.getElementById("todo-list");
-        JSON.parse(savedTasks).forEach(taskText => {
+        JSON.parse(savedTasks).forEach(taskData => {
             let li = document.createElement("li");
-            li.textContent = taskText;  // 只插入任务文本
+
+            // 创建拖动按钮
+            let dragHandle = document.createElement("span");
+            dragHandle.textContent = "≡";
+            dragHandle.classList.add("drag-handle");
+
+            // 创建完成按钮
+            let completeBtn = document.createElement("button");
+            completeBtn.textContent = "✅";
+            completeBtn.onclick = function () { toggleComplete(this); };
 
             // 创建删除按钮
-            let btn = document.createElement("button");
-            btn.textContent = "❌";
-            btn.onclick = function () { removeTask(this); };
-            
-            li.appendChild(btn);
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "❌";
+            deleteBtn.onclick = function () { removeTask(this); };
+
+            li.appendChild(dragHandle);
+            li.appendChild(completeBtn);
+            li.appendChild(document.createTextNode(taskData.text)); // 任务文本
+            li.appendChild(deleteBtn);
             list.appendChild(li);
+
+            if (taskData.completed) {
+                li.classList.add("completed");
+            }
         });
     }
 }
+
+// 让任务可以拖动排序
+new Sortable(document.getElementById("todo-list"), {
+    animation: 150,
+    handle: ".drag-handle",
+    onEnd: function () { saveTasks(); }
+});
