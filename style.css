@@ -16,74 +16,18 @@ h1 {
 }
 
 h1 .welcome {
-    color: #ffffff;
+    color: white;
+    font-size: 1.2em;
+    margin-right: 10px;
 }
 
 h1 .starlight {
     color: #ffd700;
     animation: sparkle 1.5s infinite alternate;
-}
-
-/* ✨ 星光闪烁效果 */
-@keyframes sparkle {
-    0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
-    50% { text-shadow: 0 0 8px #ffffff, 0 0 15px #ffcc00, 0 0 30px #ff9900; }
-    100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
-}
-
-/* 📜 介绍文字 */
-.description {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-/* 📌 板块布局 */
-.container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.card {
-    width: 200px;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: white;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: scale(1.1);
+    text-shadow: 0 0 3px #fff, 0 0 6px #ffddaa, 0 0 10px #ffcc00;
 }
 
 /* 📌 To-do List */
-.todo-widget {
-    margin-top: 50px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.todo-widget h2 {
-    font-size: 1.5em;
-}
-
-#todo-list {
-    list-style: none;
-    padding: 0;
-}
-
 #todo-list li {
     background: rgba(255, 255, 255, 0.2);
     padding: 8px;
@@ -94,40 +38,34 @@ h1 .starlight {
     align-items: center;
 }
 
-#todo-input {
-    width: 80%;
-    padding: 5px;
-}
-
-button {
-    padding: 5px 10px;
-    margin-top: 5px;
-    background-color: #ffd700;
-    border: none;
-    cursor: pointer;
+.task-text {
+    flex-grow: 1;
+    margin: 0 10px;
 }
 
 /* ✅ 任务完成样式 */
-.completed {
+.completed .task-text {
     text-decoration: line-through;
     color: gray;
 }
 
-/* 🌟 任务优先级排序拖动 */
-.task-item {
+.task-buttons {
     display: flex;
-    align-items: center;
+    gap: 8px;
 }
 
+.task-buttons button {
+    background: white;
+    color: black;
+    padding: 5px 8px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* 修复拖动按钮 */
 .drag-handle {
     cursor: grab;
-    padding: 5px;
-    margin-right: 10px;
-}
-
-/* ✨ 小猫 & Noah 标志 */
-.logo {
-    margin-top: 50px;
-    font-size: 1.5em;
-    font-weight: bold;
+    padding-right: 8px;
+    font-size: 1.2em;
+    user-select: none;
 }
