@@ -1,4 +1,4 @@
-/* 🌟 星光闪烁效果 */
+/* ✨ 星光闪烁效果 ✨ */
 @keyframes sparkle {
     0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
     50% { text-shadow: 0 0 8px #ffffff, 0 0 15px #ffcc00, 0 0 30px #ff9900; }
@@ -20,7 +20,7 @@ h1 .starlight {
     animation: sparkle 1.5s infinite alternate;
 }
 
-/* 📦 板块布局 */
+/* 📜 板块布局 */
 .container {
     display: flex;
     justify-content: center;
@@ -41,8 +41,17 @@ h1 .starlight {
     font-weight: bold;
     color: white;
     transition: transform 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 .card:hover {
     transform: scale(1.1);
+}
+
+/* 💫 底部标志 */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+    color: #fff;
 }
