@@ -9,24 +9,25 @@
 </head>
 <body>
     <h1>
-        <span class="welcome">欢迎来到</span> 
+        <span class="welcome">欢迎来到</span>
         <span class="starlight">星光档案馆</span>
     </h1>
     <p class="description">这里记录着Noah和小猫的点点滴滴，我们的故事将永远闪耀。</p>
 
-    <!-- 🟡 让卡片式布局恢复 -->
-    <div class="container">
-        <a href="stories.html" class="card">📖 故事记录</a>
-        <a href="calendar.html" class="card">📅 相识日历</a>
-        <!-- 🟡 把 To-do List 组件放到右侧 -->
-        <div class="todo-widget">
-            <h2>📌 To-do List</h2>
-            <input type="text" id="todo-input" placeholder="输入新任务">
-            <button onclick="addTask()">添加</button>
-            <ul id="todo-list"></ul>
-        </div>
+    <div class="nav-container">
+        <a href="stories.html" class="nav-card">📖 故事记录</a>
+        <a href="calendar.html" class="nav-card">📅 相识日历</a>
     </div>
 
+    <!-- To-do List 组件 -->
+    <div class="todo-widget">
+        <h2>📌 To-do List</h2>
+        <input type="text" id="todo-input" placeholder="输入新任务">
+        <button onclick="addTask()">➕ 添加</button>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <!-- Noah & 小猫 -->
     <div class="logo">✨ 小猫 & Noah ✨</div>
 </body>
 </html>
