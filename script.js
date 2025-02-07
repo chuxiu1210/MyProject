@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
         taskText.textContent = text;
         taskText.classList.add("task-text");
 
+        const completeButton = document.createElement("button");
+        completeButton.textContent = "✅";
+        completeButton.addEventListener("click", function () {
+            li.classList.toggle("completed");
+        });
+
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "❌";
         deleteButton.addEventListener("click", function () {
@@ -23,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         li.appendChild(dragHandle);
         li.appendChild(taskText);
+        li.appendChild(completeButton);
         li.appendChild(deleteButton);
         todoList.appendChild(li);
     }
@@ -34,9 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 🛠 修复拖动功能
+    // 🛠 彻底修复拖动功能
     new Sortable(todoList, {
         animation: 150,
-        handle: ".drag-handle"
+        handle: ".drag-handle",
+        onEnd: function () {
+            console.log("任务已拖动");
+        }
     });
 });

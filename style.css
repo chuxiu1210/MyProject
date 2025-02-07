@@ -11,20 +11,23 @@ body {
 
 /* 🟡 调整 "欢迎来到" 字体大小 */
 h1 .welcome {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-right: 10px;
 }
 
-/* ✨ Bling Bling 动画 */
+/* ✨ BlingBling 动画 */
 @keyframes bling {
-    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
-    50% { text-shadow: 0 0 8px #ffffff, 0 0 15px #ffcc00, 0 0 30px #ff9900; }
-    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ffddaa, 0 0 20px #ffcc00; }
+    0% { text-shadow: 0 0 8px #ffffff, 0 0 12px #ffcc00, 0 0 18px #ff9900; }
+    50% { text-shadow: 0 0 12px #ffffff, 0 0 18px #ffdd55, 0 0 25px #ff8800; }
+    100% { text-shadow: 0 0 8px #ffffff, 0 0 12px #ffcc00, 0 0 18px #ff9900; }
 }
 
 h1 .starlight {
     font-size: 2.5em;
-    color: #ffd700;
+    color: transparent;
+    background-image: linear-gradient(45deg, #fff, #ffd700, #ffcc00, #ffdd55, #fff);
+    background-clip: text;
+    -webkit-background-clip: text;
     animation: bling 2s infinite alternate;
 }
 
@@ -37,7 +40,7 @@ h1 .starlight {
 }
 
 .card {
-    width: 200px;
+    width: 220px;
     height: 100px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -49,22 +52,24 @@ h1 .starlight {
     font-weight: bold;
     color: white;
     transition: transform 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 .card:hover {
     transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* 📌 To-do List 调整大小 */
+/* 📌 To-do List 位置调整 */
 .todo-widget {
     width: 350px;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 15px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
 }
 
-/* 🛠 修复拖动 */
+/* ✅ 修复拖动 */
 .drag-handle {
     cursor: grab;
     padding-right: 10px;
