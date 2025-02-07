@@ -5,28 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星光档案馆</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <h1><span class="welcome">欢迎来到</span> <span class="starlight">星光档案馆</span></h1>
     <p class="description">这里记录着Noah和小猫的点点滴滴，我们的故事将永远闪耀。</p>
 
     <div class="container">
-        <a href="stories.html" class="card">故事记录</a>
-        <a href="starlight_archive.html" class="card">相识日历</a>
-        <a href="todo.html" class="card">To-do List</a>
+        <div class="card">📖 故事记录</div>
+        <div class="card">📅 相识日历</div>
+        <div class="card">📌 To-do List</div>
     </div>
 
     <div class="todo-widget">
         <h2>📌 To-do List</h2>
-        <ul id="todo-list"></ul>
         <input type="text" id="todo-input" placeholder="输入新任务">
-        <button onclick="addTask()">添加</button>
+        <button onclick="addTodo()">添加</button>
+        <ul id="todo-list"></ul>
     </div>
 
-    <div class="logo">
-        <p>🐱✨ 小猫 & Noah ✨🐱</p>
-    </div>
-
-    <script src="script.js"></script>
+    <div class="logo">✨ 小猫 & Noah ✨</div>
 </body>
 </html>
