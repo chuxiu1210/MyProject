@@ -1,4 +1,4 @@
-/* 🌟 背景 */
+/* 🌟 全局样式 */
 body {
     background: url('public/background.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -9,11 +9,17 @@ body {
     padding: 0;
 }
 
+/* 🌟 调整 "欢迎来到" 字体大小 */
+.welcome {
+    font-size: 1.5em; /* 之前字体偏大，现在调整为适中 */
+    font-weight: bold;
+}
+
 /* ✨ BlingBling 动画优化 */
 @keyframes bling {
-    0% { text-shadow: 0 0 8px #fff, 0 0 15px #ffcc00, 0 0 25px #ff9900; }
-    50% { text-shadow: 0 0 15px #fff, 0 0 20px #ffdd44, 0 0 35px #ff8800; }
-    100% { text-shadow: 0 0 8px #fff, 0 0 15px #ffcc00, 0 0 25px #ff9900; }
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ffcc00, 0 0 15px #ff9900; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 15px #ffdd44, 0 0 20px #ff8800; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ffcc00, 0 0 15px #ff9900; }
 }
 
 h1 .starlight {
