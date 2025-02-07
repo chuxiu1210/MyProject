@@ -3,25 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const todoList = document.getElementById("todo-list");
     const addButton = document.querySelector(".todo-widget button");
 
-    function loadTodos() {
-        const todos = JSON.parse(localStorage.getItem("todos")) || [];
-        todos.forEach(todo => {
-            addTodoElement(todo.text, todo.completed);
-        });
-    }
-
-    function saveTodos() {
-        const todos = [];
-        document.querySelectorAll("#todo-list li").forEach(item => {
-            todos.push({
-                text: item.querySelector(".task-text").textContent,
-                completed: item.classList.contains("completed")
-            });
-        });
-        localStorage.setItem("todos", JSON.stringify(todos));
-    }
-
-    function addTodoElement(text, completed = false) {
+    function addTodoElement(text) {
         const li = document.createElement("li");
         li.classList.add("task-item");
 
@@ -33,35 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
         taskText.textContent = text;
         taskText.classList.add("task-text");
 
-        const completeButton = document.createElement("button");
-        completeButton.textContent = "✅";
-        completeButton.addEventListener("click", function () {
-            li.classList.toggle("completed");
-            saveTodos();
-        });
-
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "❌";
         deleteButton.addEventListener("click", function () {
             li.remove();
-            saveTodos();
         });
-
-        const buttonContainer = document.createElement("div");
-        buttonContainer.classList.add("task-buttons");
-        buttonContainer.appendChild(completeButton);
-        buttonContainer.appendChild(deleteButton);
 
         li.appendChild(dragHandle);
         li.appendChild(taskText);
-        li.appendChild(buttonContainer);
-
-        if (completed) {
-            li.classList.add("completed");
-        }
-
+        li.appendChild(deleteButton);
         todoList.appendChild(li);
-        saveTodos();
     }
 
     addButton.addEventListener("click", function () {
@@ -71,13 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // 🛠 修复拖动功能
     new Sortable(todoList, {
         animation: 150,
-        handle: ".drag-handle",
-        onEnd: function () {
-            saveTodos();
-        }
+        handle: ".drag-handle"
     });
-
-    loadTodos();
 });
